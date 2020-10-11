@@ -1,79 +1,45 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import Input from "./components/Input/Input";
+import Countdown from "./components/Countdown/Countdown";
 
-// This site has 3 pages, all of which are rendered
-// dynamically in the browser (not server rendered).
-//
-// Although the page does not ever refresh, notice how
-// React Router keeps the URL up to date as you navigate
-// through the site. This preserves the browser history,
-// making sure things like the back button and bookmarks
-// work properly.
+export default function App() {
+  const calculateTimeLeft = () => {
+    let year = new Date().getFullYear();
+    let difference = +new Date(`11/01/${year}`) - +new Date();
+    let timeLeft = {};
+    
+    if (difference > 0) {
+      timeLeft = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60)
+    };
+  }
 
-export default function BasicExample() {
-  return (
-    <Router>
-      <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-        </ul>
+return timeLeft;
+};
 
-        <hr />
+    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
-        {/*
-          A <Switch> looks through all its children <Route>
-          elements and renders the first one whose path
-          matches the current URL. Use a <Switch> any time
-          you have multiple routes, but you want only one
-          of them to render at a time
-        */}
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  );
-}
+    useEffect(() => {
+    console.log('Mounted');
+      const timer = setTimeout(() => {
+        setTimeLeft(calculateTimeLeft());
+      }, 1000);
 
-// You can think of these components as "pages"
-// in your app.
+  // Clear timeout if the component is unmounted
+  return () => clearTimeout(timer);
+  
 
-function Home() {
+  
+});
+
   return (
     <div>
-      <h2>Home</h2>
-    </div>
-  );
-}
-
-function About() {
-  return (
-    <div>
-      <h2>About</h2>
-    </div>
-  );
-}
-
-function Dashboard() {
-  return (
-    <div>
-      <h2>Dashboard</h2>
+      <h1>Time Til</h1>
+      <Input />
+      <Countdown />
     </div>
   );
 }
