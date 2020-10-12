@@ -9,7 +9,6 @@ export default function App() {
 
   function handleSubmit(event: any) {
     event.preventDefault();
-    alert(`${eventName} on ${eventDate} at ${eventTime}`)
   }
 
   function updateEventName(event: any) {

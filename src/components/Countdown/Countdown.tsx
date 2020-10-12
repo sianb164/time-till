@@ -22,7 +22,15 @@ export default function Countdown(props: any) {
 }
 
 function calculateTimeLeft(props: any) {
-  const difference = +new Date(props.eventDate) - +new Date();
+  const eventDate = new Date(props.eventDate);
+  const splitTime = props.eventTime.split(":");
+
+  if (splitTime.length === 2) {
+    eventDate.setHours(splitTime[0]);
+    eventDate.setMinutes(splitTime[1]);
+  }
+
+  const difference = +eventDate - +new Date();
   const inversionModifier = difference > 0 ? 1 : -1;
   const timeLeft = {
     days: Math.floor(difference / (1000 * 60 * 60 * 24)) * inversionModifier,
