@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-export default function Countdown() {
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+export default function Countdown(props: any) {
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(props));
+  
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setTimeLeft(calculateTimeLeft());
+      setTimeLeft(calculateTimeLeft(props));
     }, 1000);
 
     // Clear timeout if the component is unmounted
@@ -20,9 +21,8 @@ export default function Countdown() {
   );
 }
 
-function calculateTimeLeft() {
-  const year = new Date().getFullYear();
-  const difference = +new Date(`11/01/${year}`) - +new Date();
+function calculateTimeLeft(props: any) {
+  const difference = +new Date(props.eventDate) - +new Date();
   const inversionModifier = difference > 0 ? 1 : -1;
   const timeLeft = {
     days: Math.floor(difference / (1000 * 60 * 60 * 24)) * inversionModifier,
