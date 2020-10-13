@@ -1,15 +1,13 @@
-.Input .event-title {
+.Input form {
   padding: 10px;
 }
 
 .Input .event-date {
   padding: 10px;
+  display: inline;
 }
 
 .Input .event-time {
   padding: 10px;
-}
-
-.Input .event-submit {
-  padding: 10px;
+  display: inline;
 }

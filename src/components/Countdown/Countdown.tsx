@@ -15,7 +15,7 @@ export default function Countdown(props: any) {
 
   return (
     <div className="Countdown">
-      <h2>Time {timeLeft.eventInPast ? 'since' : 'till'} event:</h2>
+      <h2>Time {timeLeft.eventInPast ? 'since' : 'till'} {props.eventName}:</h2>
       <h3>{timeLeft.days} days {timeLeft.hours} hours {timeLeft.minutes} minutes {timeLeft.seconds} seconds</h3>
     </div>
   );
