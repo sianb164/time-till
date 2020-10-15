@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import "./App.css"
+import "./App.css";
 import Input from "./components/Input/Input";
 import Countdown from "./components/Countdown/Countdown";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 export default function App() {
   const [eventName, setEventName] = useState("");
@@ -19,12 +20,19 @@ export default function App() {
   function updateEventTime(event: any) {
     setEventTime(event.target.value);
   }
-  
+
   return (
     <div className="App">
-      <h1>Time Till</h1>
-      <Input updateEventName={updateEventName} updateEventDate={updateEventDate} updateEventTime={updateEventTime}/>
-      <Countdown eventName={eventName} eventDate={eventDate} eventTime={eventTime}/>
+      <Sidebar
+        updateEventName={updateEventName}
+        updateEventDate={updateEventDate}
+        updateEventTime={updateEventTime}
+      />
+      <Countdown
+        eventName={eventName}
+        eventDate={eventDate}
+        eventTime={eventTime}
+      />
     </div>
   );
 }

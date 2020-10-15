@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 export default function Countdown(props: any) {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(props));
-  
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -15,8 +14,13 @@ export default function Countdown(props: any) {
 
   return (
     <div className="Countdown">
-      <h2>Time {timeLeft.eventInPast ? 'since' : 'till'} {props.eventName}:</h2>
-      <h3>{timeLeft.days} days {timeLeft.hours} hours {timeLeft.minutes} minutes {timeLeft.seconds} seconds</h3>
+      <h1>
+        Time {timeLeft.eventInPast ? "since" : "till"} {props.eventName}:
+      </h1>
+      <h2>
+        {timeLeft.days} days {timeLeft.hours} hours {timeLeft.minutes} minutes{" "}
+        {timeLeft.seconds} seconds
+      </h2>
     </div>
   );
 }
@@ -37,8 +41,8 @@ function calculateTimeLeft(props: any) {
     hours: Math.floor((difference / (1000 * 60 * 60)) % 24) * inversionModifier,
     minutes: Math.floor((difference / 1000 / 60) % 60) * inversionModifier,
     seconds: Math.floor((difference / 1000) % 60) * inversionModifier,
-    eventInPast: difference < 0
+    eventInPast: difference < 0,
   };
 
   return timeLeft;
-};
+}
