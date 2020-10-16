@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import "./Sidebar.css";
 import Input from "../Input/Input";
 
@@ -9,18 +10,24 @@ export default function Sidebar(props: any) {
   function openNav() {
     setShowSidebar(!showSidebar);
   }
-  const width = showSidebar ? "450px" : "50px";
+
+  const width = showSidebar ? "450px" : "0";
 
   return (
     <div className="Sidebar" style={{ width: width }}>
-      <button onClick={openNav}>
-        <FontAwesomeIcon icon={faBars} />
-      </button>
-      <Input
-        updateEventName={props.updateEventName}
-        updateEventDate={props.updateEventDate}
-        updateEventTime={props.updateEventTime}
-      />
+      <div className="sidebar-container">
+        <button
+          className={`toggle-button ${showSidebar ? "active" : ""}`}
+          onClick={openNav}
+        >
+          <FontAwesomeIcon icon={faBars} />
+        </button>
+        <Input
+          updateEventName={props.updateEventName}
+          updateEventDate={props.updateEventDate}
+          updateEventTime={props.updateEventTime}
+        />
+      </div>
     </div>
   );
 }
