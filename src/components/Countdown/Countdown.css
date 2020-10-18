@@ -1,0 +1,36 @@
+.Countdown .welcome-text {
+  width: 400px;
+  position: absolute;
+  top: 8px;
+  left: 80px;
+  margin: 0;
+  background: white;
+  color: black;
+  font-size: 30px;
+  text-align: left;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  line-height: 32px;
+}
+
+.Countdown .welcome-text .welcome-text-title,
+.welcome-text-content {
+  margin: 0;
+}
+
+.Countdown .welcome-text .welcome-text-title {
+  font-weight: bold;
+  font-size: 26px;
+}
+.Countdown .welcome-text .welcome-text-content {
+  font-size: 16px;
+}
+
+.Countdown .countdown-title {
+  font-size: 60px;
+}
+
+.Countdown .countdown-time {
+  font-size: 45px;
+}

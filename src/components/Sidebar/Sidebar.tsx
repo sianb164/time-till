@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import "./Sidebar.css";
 import Input from "../Input/Input";
 
@@ -11,7 +10,7 @@ export default function Sidebar(props: any) {
     setShowSidebar(!showSidebar);
   }
 
-  const width = showSidebar ? "450px" : "0";
+  const width = showSidebar ? "480px" : "0";
 
   return (
     <div className="Sidebar" style={{ width: width }}>

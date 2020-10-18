@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./App.css";
-import Input from "./components/Input/Input";
 import Countdown from "./components/Countdown/Countdown";
 import Sidebar from "./components/Sidebar/Sidebar";
 
