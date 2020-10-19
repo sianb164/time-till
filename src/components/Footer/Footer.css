@@ -1,0 +1,10 @@
+.Footer {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  color: white;
+}
+
+.Footer a {
+  color: white;
+}

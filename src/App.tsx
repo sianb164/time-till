@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Countdown from "./components/Countdown/Countdown";
 import Sidebar from "./components/Sidebar/Sidebar";
+import Footer from "./components/Footer/Footer";
 
 export default function App() {
   const [eventName, setEventName] = useState("");
@@ -32,6 +33,7 @@ export default function App() {
         eventDate={eventDate}
         eventTime={eventTime}
       />
+      <Footer />
     </div>
   );
 }
