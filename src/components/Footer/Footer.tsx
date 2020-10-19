@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="Footer">
       <a
-        href="https://github.com/sianb164/todo-app"
+        href="https://github.com/sianb164/time-till"
         target="_blank"
         rel="noopener noreferrer"
       >
